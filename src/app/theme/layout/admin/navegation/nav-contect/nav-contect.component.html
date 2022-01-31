@@ -1,0 +1,26 @@
+ <div class="d-flex align-items-center">
+  <i (click)="openNav()" class="icon-menu icon--five"></i>
+  <nav #SideNavBar id="mySidenav" class="sidenav">
+    <div class="ps-4 me-4">
+      <a class="icon-close" (click)="closeNav()"></a>
+      <div class="sidenav--header pb-2">
+        <img *ngIf="company?.logo == null" src="assets/img/ic_logo.png" alt="">
+        <img *ngIf="company?.logo" [src]="company?.logo" alt="">
+        <p>{{company?.name}}</p>
+      </div>
+        <ng-container *ngFor="let item of navigation">
+          <app-nav-group *ngIf="item.type=='group'" [item]="item"></app-nav-group>
+          <app-nav-item *ngIf="item.type=='item'" [item]="item"></app-nav-item>
+        </ng-container>
+        <ul class="sidenav--list">
+          <li>
+            <a class="nav-link" (click)="logout()" style="cursor: pointer;">
+              <span class="pcoded-micon"><i class="icon-lock"></i></span>
+              Cerrar sesión
+            </a>
+          </li>
+        </ul>
+    </div>
+  </nav>
+  <h2 class="ms-2" >{{titlePage}}</h2>
+</div>

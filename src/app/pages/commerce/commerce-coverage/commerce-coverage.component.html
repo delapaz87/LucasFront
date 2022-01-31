@@ -1,0 +1,24 @@
+<div class="header">
+  <div class="d-flex align-items-center h-100">
+    <h2 class="ms-2">Cobertura</h2>
+  </div>
+</div>
+<div class="body-content--detail" style="padding: 0px;">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="cobertura-tab" data-bs-toggle="tab" data-bs-target="#cobertura" type="button" role="tab" aria-controls="cobertura" aria-selected="true">Cobertura</button>
+    </li>
+<!--     <li class="nav-item" role="presentation">
+      <button class="nav-link" id="zona-red-tab" data-bs-toggle="tab" data-bs-target="#zona-red" type="button" role="tab" aria-controls="zona-red" aria-selected="false">Zona Roja</button>
+    </li> -->
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="cobertura" role="tabpanel" aria-labelledby="home-tab">
+      <app-coverage-store></app-coverage-store>
+    </div>
+    <div class="tab-pane fade" id="zona-red" role="tabpanel" aria-labelledby="profile-tab">
+      <app-coverage-red-zone></app-coverage-red-zone>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,49 @@
+<form [formGroup]="formUser" (ngSubmit)="submitUser()" >
+  <div class="modal-header" style="padding: 0px 15px;">
+    <h2 class="modal-login--title w-100">Invitar usuario</h2>
+    <div class="modal-login--close">
+      <a class="btn-close" mat-dialog-close></a>
+    </div>
+  </div>
+  <div class="modal-body justify-content-center">
+    <div class="col-md-12 mt-3">
+      <div class="g-modal--body">
+        <div class="g-input--material">
+          <label for="material-input">
+            <input type="text" formControlName="first_name">
+            <span class="placeholder">Nombres del invitado</span>
+          </label>
+        </div>
+        <div class="g-input--material mt-3">
+          <label for="material-input">
+            <input type="text" formControlName="last_name">
+            <span class="placeholder">Apellidos del invitado</span>
+          </label>
+        </div>
+        <div class="g-input--material mt-3">
+          <label for="material-input">
+            <input type="text" formControlName="email" >
+            <span class="placeholder">Email del invitado</span>
+          </label>
+        </div>
+        <div class="f-selec mt-4">
+          <span>Rol de invitado</span>
+          <select name="role" id="role" formControlName="role">
+            <option value="">Selecionar rol de usuario</option>
+            <option value="own">Admin</option>
+            <option value="usr">Usuario</option>
+          </select>
+      </div>
+      </div>
+      <div class="col-md-10 mx-auto">
+        <div class="mb-3">
+          <div class="mt-3">
+            <button type="submit" class="g-button g-button--primary"
+            [class.g-button--secundary]="formUser.invalid"
+            [disabled]="formUser.invalid" >Aceptar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

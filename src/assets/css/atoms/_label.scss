@@ -1,0 +1,13 @@
+.g-label{
+    background: red;
+    border-radius: 3px;
+    font-size: 14px;
+    color: $primary;
+    padding: 8px 10px;
+    cursor: pointer;
+    border: none;
+    &:hover {
+        color: white;
+        background: #1BD5EA;
+      }
+}

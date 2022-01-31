@@ -1,0 +1,8 @@
+<div class="h-97 body-content--white">
+  <div class="p-3 tab--horizontal">
+    <ng-container *ngFor="let item of navigation">
+      <app-commerce-sidebar-group *ngIf="item.type=='group'" [item]="item"></app-commerce-sidebar-group>
+      <app-commerce-sidebar-item *ngIf="item.type=='item'" [item]="item"></app-commerce-sidebar-item>
+    </ng-container>
+  </div>
+</div>

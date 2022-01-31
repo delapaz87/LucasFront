@@ -1,0 +1,62 @@
+<form  [formGroup]="formDelivery" (ngSubmit)="updateDelivery()"  >
+  <div class="modal-header" style="padding: 0px 15px;">
+    <h2 class="modal-login--title w-100">Comercio - Delivery</h2>
+    <div class="modal-login--close">
+      <a class="btn-close" mat-dialog-close></a>
+    </div>
+  </div>
+  <div class="modal-body">
+    <div class="col-md-12 mt-2">
+      <div class="g-modal--body">
+        <div class="switch mt-2">
+          <input type="checkbox" id="switch1" class="switch--input" formControlName="activate_delivery" (blur)="js()">
+          <label for="switch1" class="switch--label">Activar servicio Delivery</label>
+        </div>
+        <div class="mt-3" *ngIf="formDelivery.controls['activate_delivery'].value" >
+          <span class="g-span--tertiary">Selecciona las formas de entrega</span>
+          <div class="col-md-4">
+            <div class="md-checkbox">
+              <input id="delivery" type="checkbox" formControlName="check_delivery" >
+              <label for="delivery">Delivery</label>
+            </div>
+            <div class="md-checkbox">
+              <input id="recojo" type="checkbox" formControlName="check_recojo" >
+              <label for="recojo">Recojo</label>
+            </div>
+          </div>
+          <div class="w-100 mt-4">
+            <div class="g-input--material mb-3">
+              <label for="material-input">
+                  <input type="number" matInput name="delivery_min" formControlName="delivery_min">
+                  <span class="placeholder">Minimo de compra para delivery</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="mt-3" *ngIf="formDelivery.controls['activate_delivery'].value">
+          <span class="g-span--tertiary">¿Cómo vas a definir tu zona de cobertura?</span>
+          <div class="col-md-4">
+            <div class="mt-2">
+              <input type="radio" name="delivery_map" formControlName="delivery_map" id="radio_cover" value="0" >
+              <label for="radio_cover" class="material-input" style="margin-left: 10px;">Distancia fija en KM</label>
+            </div>
+            <div class="mt-2">
+              <input type="radio" name="delivery_map" formControlName="delivery_map"  id="radio_map" value="1" >
+              <label for="radio_map" class="material-input" style="margin-left: 10px;"> Dibujando un Mapa</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-10 mx-auto">
+        <div class="mb-3">
+          <div class="mt-3">
+            <button type="submit"
+              class="g-button g-button--primary"
+              [class.g-button--secundary]="formDelivery.invalid"
+              [disabled]="formDelivery.invalid">Aceptar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

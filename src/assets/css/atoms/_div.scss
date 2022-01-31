@@ -1,0 +1,21 @@
+.g-div{
+    display: flex;
+    &--colum{
+        flex-direction: column;
+        position: relative;
+    }
+
+    &--form {
+        margin-top: 150px;
+    }
+
+    &--center{
+        justify-items: center;
+        width: 328px;
+        font-size: 12px;
+    }
+
+    &--check{
+        width: 50px;
+    }
+}

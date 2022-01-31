@@ -1,0 +1,64 @@
+
+  <div class="modal-header" style="padding: 0px 15px;">
+    <h2 class="modal-login--title w-100">Comercio - Pagos aceptados</h2>
+    <div class="modal-login--close" (click)="close()">
+      <a class="btn-close"></a>
+    </div>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="formPagos" (ngSubmit)="submitPago()" >
+      <div class="col-md-12 mt-2">
+        <div class="g-modal--body">
+          <span class="g-span--tertiary">Selecciona los medios de pagos aceptados</span>
+          <div class="col-md-4" *ngFor="let item of payment_accept">
+            <div class="md-checkbox">
+              <input type="checkbox"
+                  [id]="item.name"
+                  [value]="item.value"
+                  (change)="onChecked($event)"
+                  [checked]="company?.payment_accepted?.split('|')?.indexOf(item.value) === -1 ||
+                  company?.payment_accepted?.split('|')?.indexOf(item.value) === null ? false : true">
+              <label [for]="item.name">{{item.name}}</label>
+            </div>
+          </div>
+          <div class="col-md-12" #isQR *ngIf="isQR" >
+            <span class="g-span--tertiary">Datos del QR</span>
+            <div class="d-flex">
+              <div class="col-md-4 file" *ngIf="company.qr_account == null || company.qr_account == ''" (click)="saveQRFile()">
+                <label for="fileupload" >Adjuntar imagen del QR</label>
+              </div>
+              <div class="col-md-4" *ngIf="company.qr_account != null && company.qr_account != ''">
+                <img [src]="company.qr_account" class="imgfile" (click)="saveQRFile()"/>
+              </div>
+              <div class="col-md-7">
+                <div class="g-input--material mt-3">
+                  <label for="material-input">
+                      <input type="text" matInput name="qr_owner" formControlName="qr_owner">
+                      <span class="placeholder">Nombre del titular</span>
+                  </label>
+                </div>
+                <div class="g-input--material mt-3">
+                  <label for="material-input">
+                      <input type="text" matInput name="qr_phone" formControlName="qr_phone">
+                      <span class="placeholder">Teléfono billetera QR</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-10 mx-auto">
+          <div class="mb-3">
+            <div class="mt-3">
+              <button type="submit" class="g-button g-button--primary"
+                [class.g-button--secundary]="formPagos.invalid"
+                [disabled]="formPagos.invalid">
+                Aceptar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+

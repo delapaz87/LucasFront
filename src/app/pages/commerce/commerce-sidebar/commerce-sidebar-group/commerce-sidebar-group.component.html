@@ -1,0 +1,7 @@
+<ng-container *ngIf="!item.hidden">
+  <li [ngClass]="item.classes" *ngIf="item.title" role="presentation"><label>{{item.title}}</label></li>
+    <ng-container *ngFor="let item of item.children">
+        <app-commerce-sidebar-group *ngIf="item.type=='group'" [item]="item"></app-commerce-sidebar-group>
+        <app-commerce-sidebar-item class="nav nav-tabs" *ngIf="item.type=='item'" [item]="item"></app-commerce-sidebar-item>
+    </ng-container>
+</ng-container>

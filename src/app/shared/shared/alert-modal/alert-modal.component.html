@@ -1,0 +1,15 @@
+<div style="text-align: right; padding: 20px; cursor: pointer;" (click)="close()">
+  <i class="icon-close" data-bs-dismiss="modal" ></i>
+</div>
+<div class="modal-body">
+  <div class="row justify-content-center">
+    <div class="col-md-8 text-center">
+      <img class="w-100 mb-4" src="assets/img/11104.jpg" alt="">
+      <h3 *ngIf="data.title != null"><b>{{data.title}}</b></h3>
+    </div>
+    <div class="col-md-9 text-center">
+      <p [innerHTML]="data.message | html"></p>
+    </div>
+  </div>
+</div>
+

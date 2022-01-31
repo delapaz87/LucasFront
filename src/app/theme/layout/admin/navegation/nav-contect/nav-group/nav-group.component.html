@@ -1,0 +1,9 @@
+<ng-container *ngIf="!item.hidden">
+    <li *ngIf="item.title"><label>{{item.title}}</label></li>
+    <ul class="sidenav--list">
+      <ng-container *ngFor="let item of item.children">
+          <app-nav-group *ngIf="item.type=='group'" [item]="item" ></app-nav-group>
+          <app-nav-item *ngIf="item.type=='item'" [item]="item" ></app-nav-item>
+      </ng-container>
+    </ul>
+</ng-container>

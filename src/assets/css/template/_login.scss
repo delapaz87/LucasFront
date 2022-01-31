@@ -1,0 +1,26 @@
+.login {
+  &--left {
+    background: url("./../img/login-bk.png");
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    
+    &__text {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      right: 15px;
+      color: white;
+    }
+
+    .img {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 250px;
+    }
+  }
+}

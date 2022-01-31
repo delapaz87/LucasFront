@@ -1,0 +1,68 @@
+.add-number {
+  font-size: 12px;
+  text-align: center;
+
+  div {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  user-select: none;
+
+  .control {
+    user-select: none;
+    cursor: pointer;
+    color: $secondary;
+    border-radius: 60px;
+    font-size: 23px;
+    height: 30px;
+  }
+
+  .p-control {
+    user-select: none;
+    cursor: pointer;
+    color: $secondary;
+    border-radius: 60px;
+    font-size: 24px;
+    height: 35px;
+  }
+}
+
+#pNumber {
+  min-width: 20px;
+  font-size: 24px;
+  margin: 0 30px;
+
+  &:after {
+    height: 20px;
+    content: attr(data-content);
+  }
+}
+
+#number {
+  min-width: 20px;
+  font-size: 12px;
+
+  &:after {
+    height: 20px;
+    content: attr(data-content);
+  }
+}
+
+.bounce {
+  animation: changeLetter 0.4s linear alternate;
+}
+
+@keyframes changeLetter {
+  0% {
+    font-size: 14px;
+    -webkit-transform: rotate(5deg);
+  }
+  50% {
+    font-size: 18px;
+    -webkit-transform: rotate(-10deg);
+  }
+  100% {
+    font-size: 14px;
+    -webkit-transform: rotate(0deg);
+  }
+}

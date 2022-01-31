@@ -1,0 +1,120 @@
+<div class="header">
+  <div class="d-flex align-items-center h-100">
+    <h2 class="ms-2">Nueva Tienda</h2>
+  </div>
+</div>
+<div class="body-content--fix">
+  <form [formGroup]="formStore" (ngSubmit)="submitStore()" >
+    <div class="body">
+    <div class="d-flex pt-3">
+        <div class="g-input--material g-input--primary me-4">
+            <label for="material-input">
+                <input type="text" formControlName="title" >
+                <span class="placeholder">Título de tu tienda</span>
+            </label>
+        </div>
+        <div class="g-input--material g-input--primary mb-3">
+            <label for="material-input">
+                <ngx-intl-tel-input matInput name="phone" formControlName="phone" [selectedCountryISO]="CountryISO.Peru" ></ngx-intl-tel-input>
+                <span class="placeholder">Teléfono de tu tienda</span>
+            </label>
+        </div>
+    </div>
+    <div class="col-md-12 d-flex pt-3">
+        <div class="g-input--material g-input--primary me-4">
+            <label for="material-input">
+                <input ngx-google-places-autocomplete formControlName="street_name" #places translate="PE" (onAddressChange)="AddressChange($event)"/>
+                <span class="placeholder">Dirección de tu tienda</span>
+            </label>
+        </div>
+        <div class="g-input--material g-input--primary mb-3">
+            <label for="material-input">
+                <input type="text" formControlName="street_number">
+                <span class="placeholder">Número</span>
+            </label>
+        </div>
+    </div>
+    <div class="col-md-12 d-flex mt-3">
+        <div class="col-md-4">
+            <div class="f-selec">
+                <span>Ciudad</span>
+                <select formControlName="city" (change)="selectCity()">
+                  <option value="" *ngIf="!isLoading">Selecciona la ciudad</option>
+                  <option value="" *ngIf="isLoading">Cargando...</option>
+                  <option [value]="item.id" *ngFor="let item of geocities">{{item.city}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="f-selec">
+                <span>Provincia</span>
+                <select formControlName="province" (change)="selectProvince()">
+                  <option value="" *ngIf="!isLoading">Selecciona la ciudad</option>
+                  <option value="" *ngIf="isLoading">Cargando...</option>
+                  <option [value]="item.id" *ngFor="let item of geoprovince">{{item.province}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="f-selec">
+                <span class="g-span--five">Distrito</span>
+                <select formControlName="district">
+                  <option value="" *ngIf="!isLoading">Selecciona la ciudad</option>
+                  <option value="" *ngIf="isLoading">Cargando...</option>
+                  <option [value]="item.id" *ngFor="let item of geodistrict">{{item.district}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 mt-4">
+        <div class="g-input--material g-input--primary mb-3">
+            <label for="material-input">
+                <input type="text" formControlName="reference">
+                <span class="placeholder">Referencia</span>
+            </label>
+        </div>
+    </div>
+    <div formArrayName="store_hours">
+      <div class="d-flex justify-content-between mt-4">
+        <span class="h-color--five h-fz--12 h-fw--500">Configuración de horario</span>
+      </div>
+      <div class="week mt-4">
+          <span></span>
+          <span class="dias">D</span>
+          <span class="dias">L</span>
+          <span class="dias">M</span>
+          <span class="dias">M</span>
+          <span class="dias">J</span>
+          <span class="dias">V</span>
+          <span class="dias">S</span>
+      </div>
+      <div class="week mt-3">
+          <span> <b>de</b></span>
+          <div class="hour" *ngFor="let trabajo of store_hours.controls; let pointIndex = index" [formGroupName]="pointIndex">
+              <input type="time" formControlName="start_time">
+          </div>
+      </div>
+      <div class="week mt-3">
+          <span><b>hasta</b></span>
+          <div class="hour" *ngFor="let trabajo of store_hours.controls; let pointIndex = index" [formGroupName]="pointIndex">
+              <input type="time" formControlName="end_time">
+              <input type="hidden" formControlName="weekday">
+          </div>
+      </div>
+    </div>
+    </div>
+    <div class="body-content--footer">
+      <div class="row m-0">
+          <div class="col-md-6">
+              <button type="button" class="w-100 g-button g-button--line-2" (click)="btnCancel()">Cancelar</button>
+          </div>
+          <div class="col-md-6">
+              <button type="submit" class="w-100 g-button g-button--primary"
+              [class.g-button--secundary]="formStore.invalid"
+              [disabled]="formStore.invalid">Guardar</button>
+          </div>
+      </div>
+    </div>
+  </form>
+</div>
+

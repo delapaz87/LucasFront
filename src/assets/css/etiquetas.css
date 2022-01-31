@@ -1,0 +1,29 @@
+.btn-group {
+  overflow: scroll;
+  padding-bottom: 20px;
+  width: 100%;
+  -ms-flex-wrap: initial;
+      flex-wrap: initial;
+}
+
+.btn-group .btn-outline-primary {
+  white-space: nowrap;
+  border-radius: 32px;
+  font-size: 14px;
+  color: #8592AC;
+  padding: 8px 10px;
+  cursor: pointer;
+  border: 1px solid #1BD5EA;
+  background: transparent;
+}
+
+.btn-group .btn-check:active + .btn-outline-primary,
+.btn-group .btn-check:checked + .btn-outline-primary,
+.btn-group .btn-outline-primary.active,
+.btn-group .btn-outline-primary.dropdown-toggle.show,
+.btn-group .btn-outline-primary:active {
+  color: white;
+  background: #1BD5EA;
+  border: 1px solid #1BD5EA;
+}
+/*# sourceMappingURL=etiquetas.css.map */

@@ -1,0 +1,50 @@
+<div class="header">
+  <div class="d-flex align-items-center p-0 justify-content-between">
+    <div class="d-flex align-items-center ">
+      <i class="icon-arrow-left icon--five" [class.d-none]="!isDisable" (click)="cancel()"></i>
+      <h2 class="ms-2">Ticket 3</h2>
+    </div>
+    <div class="d-flex align-items-center">
+      <div class="d-flex align-center">
+        <i class="icon-trash icon--five me-3"></i>
+        <i class="icon-add-person icon--five me-2"></i>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="body-content--white">
+  <div class="list-products">
+    <div [class.list-products--detail]="!isDisable" [class.list-products--detail--disable]="isDisable">
+      <ul class="list-products--detail__number">
+        <li>
+          <p class="m-0 title">Latte</p>
+          <div class="d-flex align-items-center">
+            <div class="add-number mr-5" [class.d-none]="isDisable">
+              <div class="control" id="minus"><span class="icon-minus"></span></div>
+              <div id="number">0</div>
+              <div class="control" id="plus"><span class="icon-add"></span></div>
+            </div>
+            <p class="number m-0 ps-5">S/8.90</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="list-products--price">
+      <div class="d-flex align-items-center justify-content-between mb-1">
+        <p class="m-0">Subtotal</p>
+        <p class="m-0">S/ 26.70</p>
+      </div>
+      <div class="d-flex align-items-center justify-content-between mb-1">
+        <p class="m-0">Descuento</p>
+        <p class="m-0">S/ 26.70</p>
+      </div>
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <p class="m-0">IGV</p>
+        <p class="m-0">S/ 26.70</p>
+      </div>
+    </div>
+    <div class="p-2" [class.d-none]="isDisable">
+      <button  routerLinkActive="router-link-active"  class="g-button g-button--primary" (click)="btnPagar()">Cobrar S/29.50</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+
+<div class="icon--arrow">
+  <i class="icon-arrow-left" (click)="back()" style="cursor: pointer;"></i>
+</div>
+<form ngActive >
+  <div class="g-modal--head">
+    <h2 class="modal-login--title">Ingrese el código de verificación </h2>
+  </div>
+  <div class="modal-body">
+    <div class="g-div g-div--colum">
+      <span class="g-span">Hemos enviado un correo a {{ data.email | hideReferralPipe }} con el código de verificación, por favor ingrese el código enviado:</span>
+    </div>
+    <div class="mt-5">
+      <code-input [isCodeHidden]="false"  [codeLength]="6" (codeChanged)="onCodeChanged($event)"  (codeCompleted)="onCodeCompleted($event)"></code-input>
+    </div>
+    <div class="mt-5 text-center">
+      <span class="spinner-border spinner-border-sm" *ngIf="isloading" role="status"></span>
+    </div>
+  </div>
+</form>
+

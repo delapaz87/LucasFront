@@ -1,0 +1,23 @@
+.header {
+  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 16%);
+  height: 48px;
+  background-color: white;
+  z-index: 9;
+  position: relative;
+
+  &--blue {
+    background: #5393d0;
+    box-shadow: none;
+  }
+
+  h2 {
+    font-size: 16px;
+    font-weight: 500;
+    color: $five;
+    margin: 0;
+  }
+
+  .icon-menu {
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,43 @@
+.search {
+  align-items: center;
+  background-color: #eee;
+  border-radius: 4px;
+  display: flex;
+  height: 30px;
+  min-width: 360px;
+  padding: 3px 8px 3px 12px;
+  
+  input {
+    background: transparent;
+    border: 0;
+    font-size: 12px;
+    margin-right: 0;
+    width: 100%;
+  }
+
+  i {
+    color: #aaaaaa;
+  }
+}
+
+.searc {
+  align-items: center;
+  background-color: #eee;
+  border-radius: 4px;
+  display: flex;
+  height: 30px;
+  width: 100%;
+  padding: 3px 10px 3px 10px;
+  
+  input {
+    background: transparent;
+    border: 0;
+    font-size: 12px;
+    margin-right: 10px;
+    width: 100%;
+  }
+
+  i {
+    color: #aaaaaa;
+  }
+}

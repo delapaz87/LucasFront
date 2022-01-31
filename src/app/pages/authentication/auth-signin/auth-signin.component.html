@@ -1,0 +1,73 @@
+<div class="container-fluid h-100">
+  <div class="row h-100">
+    <div class="col-md-4 p-0">
+      <div class="login--left p-5">
+        <img class="img" src="assets/img/img_illustration.svg" alt="">
+        <div class="login--left__text">
+          <p>Administra los datos de tú tienda y atiende tus pedidos en</p>
+          <h1>Tulivery Tienda</h1>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="login--content h-100">
+        <div class="row justify-content-center align-items-center h-100">
+
+          <div class="col-md-5">
+            <div class="modal-login--title mb-4">
+              <img src="assets/img/ic_logo.png" alt="">
+              <p class="mt-4">Iniciar sesión</p>
+            </div>
+            <form ngActive [formGroup]="formSigin" name="formSigin" (submit)="loginSignin()">
+              <div class="modal-login--form">
+                <div class="g-input--material mb-3">
+                  <label for="material-input">
+                      <input type="email" formControlName="email" name="email" placeholder="Correo electrónico" autocomplete="something-new">
+                      <span class="placeholder">Correo electrónico</span>
+                  </label>
+                </div>
+                <div class="g-input--material mb-3">
+                  <label for="material-input">
+                      <input type="password" formControlName="password" name="password" placeholder="Contraseña" autocomplete="something-new">
+                      <span class="placeholder">Contraseña</span>
+                  </label>
+                </div>
+                <div class="g-input--material mb-3 text-center">
+                  <re-captcha name="captcha" formControlName="recaptchaReactive" (resolved)="addTokenLog('Reactive form mode resolved', $event)" ></re-captcha>
+                </div>
+                <div class="mb-3 text-center">
+                  <button type="submit" class="g-button"
+                    [class.g-button--primary]="formSigin.valid"
+                    [class.g-button--secundary]="!formSigin.valid"
+                    [disabled]="!formSigin.valid"
+                    *ngIf="!isloading">
+                      Iniciar sesión
+                  </button>
+                  <button class="g-button"
+                    [class.g-button--primary]="formSigin.valid"
+                    [class.g-button--secundary]="!formSigin.valid"
+                    [disabled]="true"
+                    *ngIf="isloading">
+                    <span class="spinner-border spinner-border-sm"  role="status"> </span>
+                      Espere...
+                  </button>
+                </div>
+                <div class="mb-3 text-center">
+                  <a class="btn g-span g-span--secondary" (click)="openRecoveryPassword()">Olvidé mi contraseña</a>
+                </div>
+              </div>
+              <div class="text-center">
+                <span>Soy nuevo</span>
+                <a class="btn g-span g-span--secondary" (click)="openRegister()" >Ir a registrarme</a>
+              </div>
+              <div class="text-center mt-4">
+                <button class="g-button--line">Ver demo</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

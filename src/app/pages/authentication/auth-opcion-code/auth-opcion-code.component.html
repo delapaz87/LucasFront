@@ -1,0 +1,51 @@
+<div class="icon--arrow" style="cursor: pointer;">
+  <i class="icon-arrow-left" (click)="back()" ></i>
+</div>
+<form ngActive  [formGroup]="formOption" (submit)="getOpcion(shoes.selectedOptions.selected[0]?.value)"  >
+  <div class="g-modal--head">
+    <h2 class="modal-login--title">Recuperar Contraseña </h2>
+  </div>
+  <div class="modal-body">
+    <p class="">Escoga cualquiera de las siguientes opciones.</p>
+    <div class="mt-3 g-input--material">
+        <mat-list>
+          <mat-selection-list #shoes formControlName="radioOption" [multiple]="false">
+<!--               <mat-list-item>
+                <mat-list-option value="app">
+                  <mat-radio-button>
+                    <div mat-line>Enviar notificacion a la App</div>
+                    <div mat-line>Te enviaremos una notificacion a la app</div>
+                  </mat-radio-button>
+                </mat-list-option>
+              </mat-list-item> -->
+              <mat-list-item>
+                <mat-list-option value="email">
+                  <mat-radio-button>
+                    <div mat-line>Prefiero recibir el código de verificación a mi correo registrado</div>
+                    <div mat-line>Te llegará un código al correo electrónico {{ data.email| hideReferralPipe }} </div>
+                  </mat-radio-button>
+                </mat-list-option>
+              </mat-list-item>
+<!--               <mat-list-item>
+                <mat-list-option value="sms">
+                  <mat-radio-button>
+                    <div mat-line>Prefiero recibir el código de verificación en mi telefono registrado</div>
+                    <div mat-line>Te enviaremos una sms al {{ '+51982217786'| hideReferralPipe }} </div>
+                  </mat-radio-button>
+                </mat-list-option>
+              </mat-list-item> -->
+          </mat-selection-list>
+        </mat-list>
+    </div>
+    <div class="mt-5">
+      <span class="g-span--primary">Al continuar recibirás un codigo de confirmación.</span>
+    </div>
+    <div class="mt-3 text-center">
+      <button type="submit" class="g-button text-white" mat-button [class.g-button--primary]="formOption.valid" [class.g-button--secundary]="!formOption.valid" [disabled]="!formOption.valid">
+        <span class="spinner-border spinner-border-sm" *ngIf="isloading" role="status"></span>
+        Aceptar
+      </button>
+    </div>
+  </div>
+</form>
+
