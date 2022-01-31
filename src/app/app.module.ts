@@ -6,7 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material/material.module';
 import { AuthComponent } from './theme/layout/auth/auth.component';
 import { AdminModule } from './theme/layout/admin/admin.module';
-import { PaymentsModule } from './pages/payments/payments.module';
 import { TicketComponent } from './shared/shared/ticket/ticket.component';
 import { SharedModule } from './shared/shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -24,9 +23,6 @@ import { appReducers } from './app.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { CompanyGuard } from './shared/guard/company.guard';
 import { metaReducers } from './store/reducers';
-import { OnlineOrdersModule } from './pages/online-orders/online-orders.module';
-import { ReportsModule } from './pages/reports/reports.module';
-import { ReceiptsSalesModule } from './pages/receipts-sales/receipts-sales.module';
 
 
 @NgModule({
@@ -41,7 +37,6 @@ import { ReceiptsSalesModule } from './pages/receipts-sales/receipts-sales.modul
     BrowserAnimationsModule,
     MaterialModule,
     AdminModule,
-    PaymentsModule,
     SharedModule,
     CustomPipeModule,
     ToastrModule.forRoot( { preventDuplicates: true }),
@@ -54,9 +49,6 @@ import { ReceiptsSalesModule } from './pages/receipts-sales/receipts-sales.modul
       autoPause: true, // Pauses recording actions and state changes when the extension window is not open
     }),
     NavegationModule,
-    OnlineOrdersModule,
-    ReportsModule,
-    ReceiptsSalesModule,
   ],
   providers: [
     AuthGuardGuard,
